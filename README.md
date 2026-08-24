@@ -4,7 +4,7 @@ Personal site. Single static page, no build step.
 
 - `index.html` — the whole site (inline CSS, inline SVG)
 - `og-image.png` — social share card (1200x630)
-- `Kevin-Graham-Resume.pdf` — linked from the hero (**not yet added**)
+- `Kevin-Graham-Resume.pdf` — linked from the hero (source: `Kevin_Graham_Resume_8.19.26.pdf`)
 - `CNAME` — custom domain for GitHub Pages
 - `.nojekyll` — skip Jekyll processing
 
