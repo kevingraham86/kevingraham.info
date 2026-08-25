@@ -65,6 +65,7 @@
 }
 </script>
 
+<script>document.documentElement.className+=" js";</script>
 <style>
 :root{
   --ink:#14181C;
@@ -178,7 +179,7 @@ h1{
   margin:12px 0 0;
   max-width:22ch;
 }
-.role em{font-style:normal;box-shadow:inset 0 -.42em 0 var(--machine);}
+.role em{font-style:normal;background:linear-gradient(var(--machine),var(--machine)) no-repeat 0 100%/100% .42em;}
 .lede{
   margin:22px 0 0;
   max-width:46ch;
@@ -195,22 +196,23 @@ h1{
   padding:13px 18px;
   border:1px solid var(--ink);
   background:transparent;color:var(--ink);
-  transition:background .14s ease,color .14s ease,transform .14s ease;
+  transition:background .16s ease,color .16s ease,transform .16s ease,box-shadow .16s ease;
 }
-.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--panel);}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--panel);transform:translateY(-2px);box-shadow:0 4px 0 rgba(20,24,28,.14);}
 .btn-primary{background:var(--machine);border-color:var(--ink);}
 .btn-primary:hover,.btn-primary:focus-visible{background:var(--ink);color:var(--machine);}
+.btn:active{transform:translateY(0);box-shadow:none;}
 .btn svg{width:13px;height:13px;flex:none;}
 
 /* ---- territory plate (signature) ---- */
 .terr{padding:26px 26px 8px;flex:1;}
 .terr-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
-.terr svg{width:100%;height:auto;display:block;margin-top:8px;max-height:340px;}
+.terr svg{width:100%;height:auto;display:block;margin-top:10px;max-height:352px;}
 .st{fill:#DEE1DC;stroke:var(--ink);stroke-width:1.4;}
 .st-on{fill:var(--machine);}
 .st-label{
   font-family:"IBM Plex Mono",monospace;
-  font-size:13px;font-weight:600;fill:var(--ink);letter-spacing:.06em;
+  font-size:13px;font-weight:600;fill:var(--ink);letter-spacing:.06em;text-anchor:middle;
 }
 .dim{stroke:var(--ink-2);stroke-width:.9;}
 .dim-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;fill:var(--ink-2);letter-spacing:.08em;}
@@ -312,6 +314,47 @@ section:first-of-type{margin-top:0;}
 footer{border-top:1px solid var(--rule);padding:22px 0 40px;}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
 
+/* ================= motion ================= */
+html{scroll-behavior:smooth;scroll-padding-top:88px;}
+
+.topbar{transition:box-shadow .25s ease;}
+.topbar.stuck{box-shadow:0 6px 20px rgba(20,24,28,.07);}
+.topbar nav a.active{color:var(--ink);border-bottom-color:var(--machine);}
+
+.tag{transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;}
+.tag:hover{transform:translateY(-2px);border-color:var(--ink);}
+.row{transition:background .2s ease;}
+.row:hover{background:rgba(247,247,245,.7);}
+.row li::before{transition:width .2s ease;}
+.row li:hover::before{width:14px;}
+.lines a,.terr svg{transition:opacity .3s ease;}
+
+/* pre-hide only when JS is available to reveal it again */
+.js .plate-main>*,
+.js .terr-head,.js .terr-foot,
+.js .strip .cell,
+.js .sec-head,.js .row,.js .card,
+.js .contact>*{opacity:0;transform:translateY(16px);}
+.js .tag{opacity:0;transform:translateY(10px);}
+.js .terr svg{opacity:0;}
+.js .role em{background-size:0% .42em;}
+.js .role em.lit{background-size:100% .42em;transition:background-size .7s cubic-bezier(.22,.61,.36,1);}
+
+.js .in{
+  opacity:1!important;transform:none!important;
+  transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);
+}
+
+/* never leave content stranded at opacity:0 */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .js .plate-main>*,.js .terr-head,.js .terr-foot,.js .strip .cell,
+  .js .sec-head,.js .row,.js .card,.js .contact>*,.js .tag,.js .terr svg{
+    opacity:1!important;transform:none!important;
+  }
+  .js .role em{background-size:100% .42em;}
+}
+
 :focus-visible{outline:2px solid var(--steel);outline-offset:3px;}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
 </style>
@@ -360,25 +403,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
             <span class="eyebrow">Territory owned</span>
             <span class="eyebrow">Markforged</span>
           </div>
-          <svg viewBox="0 0 300 400" role="img" aria-label="Stylized map of the Western United States sales territory covering Washington, Oregon, Nevada, and California.">
-            <!-- WA -->
-            <path class="st st-on" d="M52 34 L176 30 L182 92 L58 96 Z"/>
-            <text class="st-label" x="104" y="70">WA</text>
-            <!-- OR -->
-            <path class="st st-on" d="M58 100 L182 96 L190 172 L64 176 Z"/>
-            <text class="st-label" x="110" y="144">OR</text>
-            <!-- NV -->
-            <path class="st st-on" d="M132 180 L212 176 L176 300 L118 262 Z"/>
-            <text class="st-label" x="150" y="238">NV</text>
+          <svg viewBox="34 46 328 350" role="img" aria-label="Stylized map of the Western United States sales territory covering California, Arizona, Nevada, and Hawaii.">
             <!-- CA -->
-            <path class="st st-on" d="M64 180 L128 180 L114 258 L172 306 L186 372 L118 380 L86 300 Z"/>
-            <text class="st-label" x="96" y="286">CA</text>
+            <path class="st st-on" d="M44 58 L112 58 L112 146 L162 222 L155 262 L108 292 L88 238 L66 146 Z"/>
+            <!-- NV -->
+            <path class="st st-on" d="M112 58 L180 58 L180 190 L162 222 L112 146 Z"/>
+            <!-- AZ -->
+            <path class="st st-on" d="M180 190 L248 190 L248 292 L172 292 L155 262 L162 222 Z"/>
+            <!-- HI -->
+            <path class="st st-on" d="M52 338 L66 334 L70 344 L56 348 Z"/>
+            <path class="st st-on" d="M78 344 L92 340 L96 350 L82 354 Z"/>
+            <path class="st st-on" d="M100 350 L118 347 L119 355 L101 358 Z"/>
+            <path class="st st-on" d="M124 352 L138 350 L140 361 L126 363 Z"/>
+            <path class="st st-on" d="M130 367 L150 365 L156 379 L142 387 L128 379 Z"/>
+            <text class="st-label" x="94" y="190">CA</text>
+            <text class="st-label" x="146" y="122">NV</text>
+            <text class="st-label" x="204" y="248">AZ</text>
+            <text class="st-label" x="186" y="360">HI</text>
             <!-- dimension line -->
-            <line class="dim" x1="238" y1="34" x2="238" y2="378"/>
-            <line class="dim" x1="232" y1="34" x2="244" y2="34"/>
-            <line class="dim" x1="232" y1="378" x2="244" y2="378"/>
-            <text class="dim-t" x="252" y="196">4 STATES</text>
-            <text class="dim-t" x="252" y="212">$2M / YR</text>
+            <line class="dim" x1="284" y1="58" x2="284" y2="380"/>
+            <line class="dim" x1="278" y1="58" x2="290" y2="58"/>
+            <line class="dim" x1="278" y1="380" x2="290" y2="380"/>
+            <text class="dim-t" x="296" y="214">4 STATES</text>
+            <text class="dim-t" x="296" y="230">$2M / YR</text>
           </svg>
         </div>
         <div class="terr-foot">
@@ -424,7 +471,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </div>
       <div class="body">
         <p class="title">Territory Sales Manager, West</p>
-        <p>Industrial additive manufacturing hardware and SaaS sold into engineering and manufacturing organizations across California, Oregon, Washington, and Nevada.</p>
+        <p>Industrial additive manufacturing hardware and SaaS sold into engineering and manufacturing organizations across California, Arizona, Nevada, and Hawaii.</p>
         <ul>
           <li>Carried and delivered a $2M annual territory</li>
           <li>Closed multiple six-figure deals with aerospace and defense manufacturers, running multi-threaded cycles across engineering, operations, and executive stakeholders</li>
@@ -560,5 +607,110 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <script defer data-domain="kevingraham.info" src="https://plausible.io/js/script.js"></script>
 -->
 
+<script>
+(function(){
+  var d=document;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var ALL = '.plate-main > *,.terr-head,.terr-foot,.strip .cell,.sec-head,.row,.tag,.card,.contact > *';
+
+  /* ---- territory plate: draw the outlines, then drop the fill in ---- */
+  function drawMap(instant){
+    var svg = d.querySelector('.terr svg');
+    if(!svg) return;
+    svg.classList.add('in');
+    var paths = svg.querySelectorAll('.st');
+    Array.prototype.forEach.call(paths, function(p,i){
+      var L = 0;
+      try { L = p.getTotalLength(); } catch(e){}
+      if(instant || !L){
+        p.style.strokeDasharray='none'; p.style.strokeDashoffset='0'; p.style.fillOpacity='1';
+        return;
+      }
+      p.style.strokeDasharray = L;
+      p.style.strokeDashoffset = L;
+      p.style.fillOpacity = '0';
+      p.getBoundingClientRect();               /* flush before transitioning */
+      var t = i*80;
+      p.style.transition = 'stroke-dashoffset .7s ease '+t+'ms, fill-opacity .45s ease '+(t+340)+'ms';
+      p.style.strokeDashoffset = '0';
+      p.style.fillOpacity = '1';
+    });
+    var late = svg.querySelectorAll('.st-label,.dim,.dim-t');
+    Array.prototype.forEach.call(late, function(el,i){
+      el.style.opacity = '0';
+      el.getBoundingClientRect();
+      el.style.transition = 'opacity .45s ease '+(instant?0:(760+i*35))+'ms';
+      el.style.opacity = '1';
+    });
+  }
+
+  function revealAll(){
+    Array.prototype.forEach.call(d.querySelectorAll(ALL), function(el){ el.classList.add('in'); });
+    var em = d.querySelector('.role em'); if(em) em.classList.add('lit');
+    drawMap(true);
+  }
+
+  if(reduce || !('IntersectionObserver' in window)){ revealAll(); }
+  else {
+    var groups = [
+      ['.plate-main > *', 70],
+      ['.terr-head, .terr-foot', 70],
+      ['.strip .cell', 60],
+      ['.sec-head', 0],
+      ['.row', 70],
+      ['.tag', 28],
+      ['.card', 90],
+      ['.contact > *', 60]
+    ];
+    var items = [];
+    groups.forEach(function(g){
+      Array.prototype.forEach.call(d.querySelectorAll(g[0]), function(el,i){
+        el.setAttribute('data-delay', i*g[1]);
+        items.push(el);
+      });
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        e.target.style.transitionDelay = (e.target.getAttribute('data-delay')||0)+'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    items.forEach(function(el){ io.observe(el); });
+
+    drawMap(false);
+    setTimeout(function(){
+      var em = d.querySelector('.role em'); if(em) em.classList.add('lit');
+    }, 560);
+
+    /* safety net: if anything never intersects, show it */
+    setTimeout(revealAll, 4000);
+  }
+
+  /* ---- sticky header shadow + active nav link ---- */
+  var bar = d.querySelector('.topbar');
+  var links = Array.prototype.slice.call(d.querySelectorAll('.topbar nav a'));
+  var pairs = [];
+  links.forEach(function(a){
+    var t = d.querySelector(a.getAttribute('href'));
+    if(t) pairs.push([a,t]);
+  });
+  var ticking = false;
+  function onScroll(){
+    var y = window.pageYOffset || d.documentElement.scrollTop;
+    if(bar) bar.classList.toggle('stuck', y > 8);
+    var cur = null;
+    pairs.forEach(function(p){ if(p[1].getBoundingClientRect().top <= 150) cur = p; });
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(cur) cur[0].classList.add('active');
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+})();
+</script>
 </body>
 </html>
