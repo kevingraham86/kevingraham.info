@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kevin Graham | Regional &amp; Channel Sales Manager, Industrial Technology</title>
-<meta name="description" content="Kevin Graham is a regional and channel sales manager in industrial technology. Owned a $2M Western U.S. territory at Markforged selling industrial additive manufacturing. Built a national distributor network from zero at Morali EOAT. Based in Poway, California.">
+<meta name="description" content="Kevin Graham is a regional and channel sales manager in industrial technology. Owned a $2M Western U.S. territory at Markforged selling industrial additive manufacturing. Built a national distributor network from zero at Morali EOAT. Relocating from San Diego to New York in November 2026.">
 <link rel="canonical" href="https://kevingraham.info/">
 
 <meta property="og:type" content="profile">
@@ -57,7 +57,7 @@
   },
   "worksFor": {
     "@type": "Organization",
-    "name": "Doctor Multimedia"
+    "name": "SMB AI Partners LLC"
   },
   "sameAs": [
     "https://www.linkedin.com/in/kevincgraham"
@@ -357,14 +357,58 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
 
 :focus-visible{outline:2px solid var(--steel);outline-offset:3px;}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+/* ================= v2 ================= */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--machine);transform:scaleX(0);transform-origin:0 50%;z-index:30;}
+.plate{background:var(--ink);color:var(--panel);background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:32px 32px;}
+.plate .eyebrow{color:#AEB5B9;}
+.plate-side{border-color:#3A4249!important;}
+.role{color:#fff;line-height:1.38;}
+.role em{color:var(--ink);padding:0 .12em;background-size:100% 100%;}
+.js .role em{background-size:0% 100%;color:#fff;}
+.js .role em.lit{background-size:100% 100%;color:var(--ink);transition:background-size .6s cubic-bezier(.22,.61,.36,1),color .3s ease .25s;}
+.lede{color:#C9CFD2;}
+.plate .btn:not(.btn-primary){border-color:#AEB5B9;color:var(--panel);}
+.plate .btn:not(.btn-primary):hover,.plate .btn:not(.btn-primary):focus-visible{background:var(--panel);border-color:var(--panel);color:var(--ink);}
+.plate .btn-primary{color:var(--ink);}
+.plate .btn-primary:hover,.plate .btn-primary:focus-visible{background:var(--panel);color:var(--ink);}
+.dim{stroke:#AEB5B9;}.dim-t{fill:#C9CFD2;}
+.st-hi{fill:var(--panel);}
+.terr-foot{border-color:#3A4249;}
+.cell{transition:background .18s ease;}
+.cell:hover{background:var(--machine);}
+.cell:hover .k{color:var(--ink);}
+.ticker{margin-top:-8px;overflow:hidden;background:var(--machine);border:1px solid var(--ink);border-top:none;}
+.ticker-track{display:flex;width:max-content;animation:tick 34s linear infinite;}
+.ticker span{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:11px 0;white-space:nowrap;}
+.ticker span::after{content:"/";margin:0 22px;opacity:.5;}
+@keyframes tick{to{transform:translateX(-50%);}}
+.now-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;}
+@media(max-width:840px){.now-grid{grid-template-columns:1fr;}}
+.now-card{display:block;border:1px solid var(--ink);padding:28px;text-decoration:none;background:var(--panel);transition:transform .18s ease,box-shadow .18s ease;}
+.now-card h3{font-family:"Saira Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(30px,4vw,42px);line-height:1;margin:12px 0;}
+.now-card p{margin:0;color:var(--ink-2);}
+.now-lpg{background:var(--machine);}
+.now-lpg .eyebrow,.now-lpg p{color:var(--ink);}
+.now-lpg:hover,.now-lpg:focus-visible{transform:translate(-3px,-3px)!important;box-shadow:6px 6px 0 var(--ink);}
+.go{display:inline-block;margin-top:18px;font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;}
+.now-move svg{display:block;width:100%;margin:8px 0 12px;}
+.route{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:0;}
+.js .now-move .route{stroke-dashoffset:1;}
+.js .now-move.in .route{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s ease .25s;}
+.pin{fill:var(--ink);}.pin-end{fill:var(--machine);stroke:var(--ink);stroke-width:2;}
+.now-move text{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;fill:var(--ink-2);}
+.js .now-card{opacity:0;transform:translateY(16px);}
+@media(prefers-reduced-motion:reduce){.js .now-card{opacity:1!important;transform:none!important;}.js .now-move .route{stroke-dashoffset:0;}.js .role em{background-size:100% 100%;color:var(--ink);}.ticker-track{width:auto;flex-wrap:wrap;}}
 </style>
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
 <header class="topbar">
   <div class="wrap">
     <div class="mark">Kevin Graham <span>/ Industrial Sales</span></div>
     <nav>
+      <a href="#now">Now</a>
       <a href="#track">Track record</a>
       <a href="#capability">Capability</a>
       <a href="#background">Background</a>
@@ -378,7 +422,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
   <div class="hero">
     <div class="plate">
       <div class="plate-main">
-        <div class="eyebrow">Poway, CA  /  Western U.S.  /  Remote</div>
+        <div class="eyebrow">San Diego, CA / New York from Nov 2026</div>
         <h1>Kevin<br>Graham</h1>
         <p class="role">Regional &amp; channel sales manager, <em>industrial technology</em></p>
         <p class="lede">I sell technical hardware and software into manufacturing, and I grow it through partners. Additive manufacturing, robotics, and industrial automation, direct and through distributors.</p>
@@ -419,7 +463,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
             <text class="st-label" x="94" y="190">CA</text>
             <text class="st-label" x="146" y="122">NV</text>
             <text class="st-label" x="204" y="248">AZ</text>
-            <text class="st-label" x="186" y="360">HI</text>
+            <text class="st-label st-hi" x="186" y="360">HI</text>
             <!-- dimension line -->
             <line class="dim" x1="284" y1="58" x2="284" y2="380"/>
             <line class="dim" x1="278" y1="58" x2="290" y2="58"/>
@@ -443,23 +487,55 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
     </div>
   </div>
 
-  <section id="track">
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>Channel sales</span><span>Territory management</span><span>Additive manufacturing</span><span>Robotics</span><span>Distributor networks</span><span>Customer loyalty</span><span>Applied AI</span>
+    <span>Channel sales</span><span>Territory management</span><span>Additive manufacturing</span><span>Robotics</span><span>Distributor networks</span><span>Customer loyalty</span><span>Applied AI</span>
+  </div></div>
+
+  <section id="now">
     <div class="sec-head">
       <span class="eyebrow">01</span>
+      <h2>Now</h2>
+      <span class="line"></span>
+    </div>
+    <div class="now-grid">
+      <a class="now-card now-lpg" href="https://loyaltyprogramguy.com/" rel="noopener" data-goatcounter-click="loyaltyprogramguy" data-goatcounter-title="Loyalty Program Guy">
+        <span class="eyebrow">Current focus</span>
+        <h3>Loyalty Program Guy</h3>
+        <p>Text loyalty programs that help restaurants, salons, and shops bring customers back. Same job as territory sales, one main street at a time: find the repeat revenue and build the system that keeps it.</p>
+        <span class="go">loyaltyprogramguy.com &rarr;</span>
+      </a>
+      <div class="now-card now-move">
+        <span class="eyebrow">Next move</span>
+        <h3>New York, November 2026</h3>
+        <svg viewBox="0 0 320 70" role="img" aria-label="Route from San Diego to New York">
+          <path class="route" pathLength="1" d="M14 44 C 90 0, 220 0, 306 34"/>
+          <circle class="pin" cx="14" cy="44" r="5"/><circle class="pin pin-end" cx="306" cy="34" r="5"/>
+          <text x="4" y="64">SAN DIEGO</text><text x="316" y="56" text-anchor="end">NEW YORK</text>
+        </svg>
+        <p>Relocating from San Diego and open to regional, territory, and channel roles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="track">
+    <div class="sec-head">
+      <span class="eyebrow">02</span>
       <h2>Track record</h2>
       <span class="line"></span>
     </div>
 
     <div class="row">
       <div class="meta">
-        <span class="co">Doctor Multimedia</span>
-        <span class="eyebrow when">Mar 2026 &ndash; Present</span>
+        <span class="co">SMB AI Partners</span>
+        <span class="eyebrow when">Sep 2025 &ndash; Present</span>
       </div>
       <div class="body">
-        <p class="title">Client Success Manager</p>
-        <p>Digital marketing and web platform services for healthcare practices.</p>
+        <p class="title">AI Strategy Consultant</p>
+        <p>Practical AI and automation for small and midsize businesses, and the home of my Loyalty Program Guy work.</p>
         <ul>
-          <li>Manage a book of healthcare practice clients across retention, expansion, and technical onboarding</li>
+          <li>Audit tech stacks and build workflows that reduce manual admin load</li>
+          <li>Design and deploy generative AI agents for lead follow-up, market research, and competitive analysis using an ROI-first framework</li>
         </ul>
       </div>
     </div>
@@ -523,7 +599,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
         <p class="title">Retention Supervisor, and four roles across seven years</p>
         <ul>
           <li>Promoted from inbound sales and retention into supervision</li>
-          <li>Coached 11 to 20 agents to six consecutive months over revenue and unit targets</li>
+          <li>Coached 15 to 20 agents to six consecutive months over revenue and unit targets</li>
           <li>Team held the highest nationwide quality evaluations in December</li>
         </ul>
       </div>
@@ -532,7 +608,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
 
   <section id="capability">
     <div class="sec-head">
-      <span class="eyebrow">02</span>
+      <span class="eyebrow">03</span>
       <h2>What I do</h2>
       <span class="line"></span>
     </div>
@@ -556,7 +632,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
 
   <section id="background">
     <div class="sec-head">
-      <span class="eyebrow">03</span>
+      <span class="eyebrow">04</span>
       <h2>Background</h2>
       <span class="line"></span>
     </div>
@@ -571,7 +647,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
         <span class="eyebrow">Education</span>
         <h3>Western Governors University</h3>
         <ul>
-          <li>M.S. Computer Science, AI and Machine Learning &mdash; in progress, expected 2027</li>
+          <li>M.S. Computer Science, AI and Machine Learning, in progress, expected 2027</li>
           <li>M.S. Marketing, Marketing Analytics</li>
           <li>B.S. Business Management</li>
         </ul>
@@ -584,7 +660,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
     <div class="contact">
       <span class="eyebrow">Open to</span>
       <h2>Regional, territory,<br>and channel management</h2>
-      <p>Industrial technology, automation, additive manufacturing, robotics, metrology, and technical hardware plus software. San Diego, or remote covering the Western U.S.</p>
+      <p>Industrial technology, automation, additive manufacturing, robotics, metrology, and technical hardware plus software. Based in New York from November 2026, or remote.</p>
       <a class="btn btn-primary" href="mailto:kevin@smbaipartners.com?subject=Role%20inquiry" data-goatcounter-click="email-cta" data-goatcounter-title="Start a conversation">Start a conversation</a>
       <div class="lines">
         <div><span class="eyebrow">Email</span><a href="mailto:kevin@smbaipartners.com" data-goatcounter-click="email-footer" data-goatcounter-title="Email (contact block)">kevin@smbaipartners.com</a></div>
@@ -598,7 +674,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
 
 <footer>
   <div class="wrap">
-    <span class="eyebrow">Kevin Graham, MS  /  Poway, California</span>
+    <span class="eyebrow">Kevin Graham, MS / San Diego to New York</span>
     <span class="eyebrow">kevingraham.info</span>
   </div>
 </footer>
@@ -611,7 +687,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
 (function(){
   var d=document;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var ALL = '.plate-main > *,.terr-head,.terr-foot,.strip .cell,.sec-head,.row,.tag,.card,.contact > *';
+  var ALL = '.now-card,.plate-main > *,.terr-head,.terr-foot,.strip .cell,.sec-head,.row,.tag,.card,.contact > *';
 
   /* ---- territory plate: draw the outlines, then drop the fill in ---- */
   function drawMap(instant){
@@ -657,6 +733,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
       ['.terr-head, .terr-foot', 70],
       ['.strip .cell', 60],
       ['.sec-head', 0],
+      ['.now-card', 90],
       ['.row', 70],
       ['.tag', 28],
       ['.card', 90],
@@ -684,9 +761,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
       var em = d.querySelector('.role em'); if(em) em.classList.add('lit');
     }, 560);
 
-    /* safety net: if anything never intersects, show it */
-    setTimeout(revealAll, 4000);
-  }
+      }
 
   /* ---- sticky header shadow + active nav link ---- */
   var bar = d.querySelector('.topbar');
@@ -700,6 +775,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
   function onScroll(){
     var y = window.pageYOffset || d.documentElement.scrollTop;
     if(bar) bar.classList.toggle('stuck', y > 8);
+    var max = d.documentElement.scrollHeight - window.innerHeight;
+    var pr = d.getElementById('progress');
+    if(pr) pr.style.transform = 'scaleX('+(max>0?y/max:0)+')';
     var cur = null;
     pairs.forEach(function(p){ if(p[1].getBoundingClientRect().top <= 150) cur = p; });
     links.forEach(function(a){ a.classList.remove('active'); });
