@@ -31,6 +31,7 @@
   "@type": "Person",
   "name": "Kevin Graham",
   "url": "https://kevingraham.info/",
+  "image": "https://kevingraham.info/kevin-graham-headshot.jpg",
   "jobTitle": "Regional and Channel Sales Manager",
   "email": "mailto:kevin@smbaipartners.com",
   "telephone": "+1-858-341-9719",
@@ -358,6 +359,9 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
 :focus-visible{outline:2px solid var(--steel);outline-offset:3px;}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
 /* ================= v2 ================= */
+.id-row{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:14px;}
+.id-row h1{margin:0;}
+.portrait{width:clamp(104px,16vw,150px);height:auto;aspect-ratio:150/205;object-fit:cover;object-position:50% 20%;border:1px solid #AEB5B9;box-shadow:7px 7px 0 var(--machine);margin-right:7px;flex:none;}
 .progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--machine);transform:scaleX(0);transform-origin:0 50%;z-index:30;}
 .plate{background:var(--ink);color:var(--panel);background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:32px 32px;}
 .plate .eyebrow{color:#AEB5B9;}
@@ -423,7 +427,10 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
     <div class="plate">
       <div class="plate-main">
         <div class="eyebrow">San Diego, CA / New York from Nov 2026</div>
-        <h1>Kevin<br>Graham</h1>
+        <div class="id-row">
+          <h1>Kevin<br>Graham</h1>
+          <img class="portrait" src="kevin-graham-headshot.jpg" width="150" height="205" alt="Portrait of Kevin Graham">
+        </div>
         <p class="role">Regional &amp; channel sales manager, <em>industrial technology</em></p>
         <p class="lede">I sell technical hardware and software into manufacturing, and I grow it through partners. Additive manufacturing, robotics, and industrial automation, direct and through distributors.</p>
         <div class="cta-row">
@@ -565,12 +572,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
       </div>
       <div class="body">
         <p class="title">Sales Manager, U.S.</p>
-        <p>Robotics end-of-arm tooling. U.S. market entry from a standing start.</p>
-        <ul>
-          <li>Built the U.S. go-to-market from zero and established a national distributor network</li>
-          <li>Launched the brand at major U.S. industrial trade shows</li>
-          <li>Partnered with system integrators and distributors to accelerate adoption across manufacturing and packaging accounts</li>
-        </ul>
+        <p>Launched a new robotics tooling brand in the U.S., taking it from zero to $100K in pipeline.</p>
       </div>
     </div>
 
@@ -583,6 +585,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;}
         <p class="title">National Sales Manager</p>
         <p>Ran the national sales desk across working capital, equipment finance, and lines of credit, including training, staffing, and performance management.</p>
         <ul>
+          <li>Player-coach with full management of a team of 3 to 5 agents</li>
           <li>Closed over $4M in funded deals annually</li>
           <li>Reduced new hire ramp time 30% through structured coaching and consultative value-selling frameworks</li>
           <li>Increased renewal conversions 25% with a data-driven client follow-up program</li>
